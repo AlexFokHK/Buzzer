@@ -47,4 +47,4 @@ io.on('connection', (socket) => {
   })
 })
 
-server.listen(8090, () => console.log('Listening on port 8090'))
+server.listen(80, () => console.log('Listening on port 80'))
