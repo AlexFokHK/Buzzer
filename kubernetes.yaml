@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: Buzzer
+  labels:
+    app: Buzzer
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: Buzzer
+    spec:
+      containers:
+      - name: Buzzer
+        image: ITCS/Buzzer:1.0.0
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 100m
+            memory: 200Mi
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: buzzer
+  labels:
+    app: buzzer
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    app: Buzzer
+  type: LoadBalancer

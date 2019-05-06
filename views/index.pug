@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title=title
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:500,700|Roboto:400,500,700,900")
+    link(rel="stylesheet" href='/style.css')
+  body.js-body
+    header
+      img.logo(src='/logo.svg')
+
+    div.container
+      form.view.js-join
+        img(src="/itquiz.png" class="main-image")
+        h2="Let's play!"
+        input(type='text' name='house' placeholder='Your House' required='required')
+        button(type='submit')='Join!'
+
+      div.view.js-joined.hidden
+        button.js-buzzer.buzzer()='Buzz!!!'
+        p.js-joined-info=""
+
+    script(src='/socket.io/socket.io.js')
+    script(src='/join.js')
