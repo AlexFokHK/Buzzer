@@ -4,7 +4,7 @@ const buzzList = document.querySelector('.js-buzzes')
 const clear = document.querySelector('.js-clear')
 
 socket.on('active', (numberActive) => {
-  active.innerText = `${numberActive} joined`
+  active.innerText = `Buzzed Order`
 })
 
 socket.on('buzzes', (buzzes) => {
